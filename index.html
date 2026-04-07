@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EIT — IT Consulting &amp; Automation</title>
 <meta name="description" content="EIT is a Pennsylvania-based IT consulting firm helping small and mid-size businesses build automated systems using n8n, AI tools, and workflow automation.">
+<link rel="icon" type="image/jpeg" href="logo.jpeg">
+<link rel="apple-touch-icon" href="logo.jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -42,8 +44,8 @@ nav.dark{background:rgba(14,13,11,.9);border-bottom:1px solid var(--border-dark)
 nav.light{background:rgba(250,249,246,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
 .nav-inner{max-width:1280px;margin:0 auto;padding:0 2.5rem;height:70px;display:flex;align-items:center;justify-content:space-between}
 .logo{font-family:var(--serif);font-size:1.4rem;letter-spacing:.06em;font-weight:600;transition:color .3s}
-nav.dark .logo{color:var(--accent-light)}
-nav.light .logo{color:var(--accent)}
+nav.dark .logo img{filter:brightness(0) invert(1)}
+nav.light .logo img{filter:none}
 .nav-links{display:flex;gap:2.75rem;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;transition:color .3s}
 nav.dark .nav-links{color:rgba(250,249,246,.55)}
 nav.light .nav-links{color:var(--text-muted)}
@@ -270,7 +272,7 @@ footer{background:var(--dark);color:var(--cream)}
 <!-- NAV -->
 <nav class="dark" id="mainNav">
   <div class="nav-inner">
-    <a href="#" class="logo">EIT</a>
+    <a href="#" class="logo"><img src="logo.jpeg" alt="EIT" style="height:38px;width:auto;display:block;object-fit:contain;"></a>
     <div class="nav-links" id="navLinks">
       <a href="#services">Services</a>
       <a href="#process">Process</a>
@@ -555,7 +557,7 @@ footer{background:var(--dark);color:var(--cream)}
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        EIT
+        <img src="logo.jpeg" alt="EIT" style="height:42px;width:auto;display:block;margin-bottom:.75rem;object-fit:contain;">
         <p>IT consulting &amp; automation for small and mid-size businesses.</p>
       </div>
       <div class="footer-cols">
