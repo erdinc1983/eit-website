@@ -136,8 +136,8 @@ nav.light .nav-hamburger span{background:var(--text)}
 
 /* ── HERO ── */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:var(--dark)}
-.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80');background-size:cover;background-position:center;opacity:.28}
-.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(53,63,78,.98) 30%,rgba(53,63,78,.55) 100%)}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 25% 30%,rgba(92,122,138,.18),transparent 55%),radial-gradient(ellipse at 80% 70%,rgba(201,160,80,.10),transparent 60%)}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(53,63,78,.92) 25%,rgba(53,63,78,.4) 100%)}
 .hero-inner{max-width:1280px;margin:0 auto;padding:0 2.5rem 5rem;width:100%;position:relative;z-index:1}
 .hero-eyebrow{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent-light);margin-bottom:2rem;display:flex;align-items:center;gap:.85rem;opacity:.95}
 h1{font-family:var(--serif);font-size:clamp(3rem,6.5vw,5.5rem);font-weight:400;line-height:1.08;max-width:900px;color:var(--cream);letter-spacing:-.02em;margin-bottom:2.5rem}
@@ -174,6 +174,17 @@ h2 em{font-style:italic;color:var(--accent)}
 .stat:last-child{border-right:none}
 .stat-num{font-family:var(--serif);font-size:2.2rem;color:var(--accent-light);margin-bottom:.4rem;font-weight:400}
 .stat-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,249,246,.6)}
+
+/* ── DIAGNOSTIC TRIGGERS ── */
+.triggers{background:var(--white)}
+.triggers-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:3rem;background:var(--border2)}
+.trigger-item{background:var(--white);padding:1.85rem 2rem;display:flex;gap:1.1rem;align-items:flex-start;transition:background .25s}
+.trigger-item:hover{background:var(--cream2)}
+.trigger-num{flex-shrink:0;font-family:var(--serif);font-size:1.05rem;color:var(--accent);opacity:.5;line-height:1.4;font-weight:400;letter-spacing:.04em}
+.trigger-text{font-size:.97rem;line-height:1.7;color:var(--text-mid);font-weight:400}
+.triggers-cta{margin-top:3rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;padding-top:2rem;border-top:1px solid var(--border)}
+.triggers-cta-text{color:var(--text-muted);font-size:.95rem;line-height:1.7;max-width:520px;font-weight:300}
+.triggers-cta-text strong{color:var(--text);font-weight:500}
 
 /* ── SERVICES BENTO ── */
 .services{background:var(--cream2)}
@@ -332,8 +343,9 @@ footer{background:var(--dark);color:var(--cream)}
 .faq-item.open .faq-answer{max-height:600px}
 
 /* ── TOAST ── */
-#toast{position:fixed;bottom:2rem;right:2rem;background:var(--dark);color:var(--cream);padding:.9rem 1.5rem;font-size:.82rem;font-weight:500;box-shadow:0 8px 40px rgba(0,0,0,.3);transform:translateY(130%);opacity:0;transition:transform .4s cubic-bezier(.34,1.56,.64,1),opacity .3s;z-index:999;letter-spacing:.02em;border-left:2px solid var(--accent-light)}
-#toast.show{transform:translateY(0);opacity:1}
+#toast,#toast-error{position:fixed;bottom:2rem;right:2rem;background:var(--dark);color:var(--cream);padding:.9rem 1.5rem;font-size:.82rem;font-weight:500;box-shadow:0 8px 40px rgba(0,0,0,.3);transform:translateY(130%);opacity:0;transition:transform .4s cubic-bezier(.34,1.56,.64,1),opacity .3s;z-index:999;letter-spacing:.02em;border-left:2px solid var(--accent-light);max-width:340px}
+#toast-error{border-left-color:var(--error)}
+#toast.show,#toast-error.show{transform:translateY(0);opacity:1}
 
 /* ── REVEAL ── */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
@@ -370,6 +382,7 @@ footer{background:var(--dark);color:var(--cream)}
   .testimonials-grid{grid-template-columns:1fr}
 }
 @media(max-width:640px){
+  .triggers-grid{grid-template-columns:1fr}
   section{padding:5rem 1.5rem}
   nav .nav-inner{padding:0 1.5rem}
   .hero-inner{padding:0 1.5rem 4rem}
@@ -425,7 +438,7 @@ footer{background:var(--dark);color:var(--cream)}
 
 <!-- HERO -->
 <section class="hero" id="home" aria-label="Hero">
-  <div class="hero-bg" role="img" aria-label="Modern office workspace background"></div>
+  <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-inner" id="main">
     <div class="hero-eyebrow" data-i18n="hero.eyebrow">IT Consulting &amp; Automation &nbsp;·&nbsp; Philadelphia, PA</div>
     <h1 data-i18n-html="hero.title">Stop doing manually<br>what systems can do<br><em>automatically.</em></h1>
@@ -472,6 +485,27 @@ footer{background:var(--dark);color:var(--cream)}
     <div class="stat"><div class="stat-num" data-i18n="stats.reachNum">Global</div><div class="stat-label" data-i18n="stats.reach">Reach</div></div>
   </div>
 </div>
+
+<!-- DIAGNOSTIC TRIGGERS -->
+<section class="triggers" id="triggers">
+  <div class="section-inner reveal">
+    <div class="section-tag" data-i18n="triggers.tag">Sound Familiar?</div>
+    <h2 data-i18n-html="triggers.h2">If any of this is your<br><em>day-to-day</em>, we should talk.</h2>
+    <p class="section-desc" data-i18n="triggers.desc">The patterns we see most often inside small and mid-size operations. None of them require an enterprise budget to fix.</p>
+    <div class="triggers-grid">
+      <div class="trigger-item"><span class="trigger-num">01</span><span class="trigger-text" data-i18n="triggers.1">Your team re-enters the same data into multiple systems every week.</span></div>
+      <div class="trigger-item"><span class="trigger-num">02</span><span class="trigger-text" data-i18n="triggers.2">Leads sit in inboxes for hours or days before anyone follows up.</span></div>
+      <div class="trigger-item"><span class="trigger-num">03</span><span class="trigger-text" data-i18n="triggers.3">Reports take half a day because the data lives in disconnected tools.</span></div>
+      <div class="trigger-item"><span class="trigger-num">04</span><span class="trigger-text" data-i18n="triggers.4">Service requests, tickets, or orders are still routed by hand.</span></div>
+      <div class="trigger-item"><span class="trigger-num">05</span><span class="trigger-text" data-i18n="triggers.5">Your founder or ops lead is still the glue between every system.</span></div>
+      <div class="trigger-item"><span class="trigger-num">06</span><span class="trigger-text" data-i18n="triggers.6">You want AI inside your operations, but not as a risky science project.</span></div>
+    </div>
+    <div class="triggers-cta">
+      <p class="triggers-cta-text" data-i18n-html="triggers.ctaText">If <strong>two or more</strong> of these sound like you, an automation audit will usually pay for itself before the first invoice clears.</p>
+      <a href="#contact" class="btn-primary" data-i18n="triggers.ctaBtn">Tell Us About It</a>
+    </div>
+  </div>
+</section>
 
 <!-- SERVICES -->
 <section class="services" id="services">
@@ -562,17 +596,12 @@ footer{background:var(--dark);color:var(--cream)}
   <div class="section-inner reveal">
     <div class="section-tag" data-i18n="projects.tag">Select Work</div>
     <h2 data-i18n-html="projects.h2">Engagements that<br><em>moved the needle</em></h2>
-    <p class="section-desc" data-i18n="projects.desc">Two recent consulting projects across very different industries. Same outcome: technology that works.</p>
+    <p class="section-desc" data-i18n="projects.desc">Three recent consulting projects across very different industries. Same outcome: technology that works.</p>
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-industry" data-i18n="projects.1.industry">Smart City &amp; Transportation Technology</div>
         <h3 data-i18n="projects.1.title">Enterprise IT Consulting for a Global Smart City &amp; Transit Platform</h3>
         <p data-i18n="projects.1.desc">Strategic technology consulting for an international company operating at the intersection of smart city infrastructure, connected transportation, IoT systems, and large-scale integration across multiple continents.</p>
-        <div class="project-metric">
-          <div class="metric-item"><span class="metric-num">6+</span><span class="metric-label" data-i18n="projects.1.m1">Countries Active</span></div>
-          <div class="metric-item"><span class="metric-num">40%</span><span class="metric-label" data-i18n="projects.1.m2">Faster Integration</span></div>
-          <div class="metric-item"><span class="metric-num" data-i18n="projects.1.m3num">Multi</span><span class="metric-label" data-i18n="projects.1.m3">System Architecture</span></div>
-        </div>
         <div class="project-tags">
           <span data-i18n="projects.1.tag1">Smart Cities</span><span data-i18n="projects.1.tag2">IoT</span><span data-i18n="projects.1.tag3">Fintech</span><span data-i18n="projects.1.tag4">System Integration</span>
         </div>
@@ -581,11 +610,6 @@ footer{background:var(--dark);color:var(--cream)}
         <div class="project-industry" data-i18n="projects.2.industry">AI &amp; Mining Technology</div>
         <h3 data-i18n="projects.2.title">Data Platform &amp; Architecture for an AI-Powered Mining Analytics Company</h3>
         <p data-i18n="projects.2.desc">Technology consulting for a firm building machine learning tools and analytics platforms for the mining industry. Contributed to data pipeline design, MLOps infrastructure, and value-chain optimization tooling.</p>
-        <div class="project-metric">
-          <div class="metric-item"><span class="metric-num">3x</span><span class="metric-label" data-i18n="projects.2.m1">Faster Pipelines</span></div>
-          <div class="metric-item"><span class="metric-num">60%</span><span class="metric-label" data-i18n="projects.2.m2">Less Manual Work</span></div>
-          <div class="metric-item"><span class="metric-num">ML</span><span class="metric-label" data-i18n="projects.2.m3">Ops Infrastructure</span></div>
-        </div>
         <div class="project-tags">
           <span data-i18n="projects.2.tag1">Artificial Intelligence</span><span data-i18n="projects.2.tag2">Data Analytics</span><span data-i18n="projects.2.tag3">Mining Tech</span><span data-i18n="projects.2.tag4">ML Ops</span>
         </div>
@@ -594,53 +618,8 @@ footer{background:var(--dark);color:var(--cream)}
         <div class="project-industry" data-i18n="projects.3.industry">Renewable Energy &amp; Solar Operations</div>
         <h3 data-i18n="projects.3.title">AI-Driven Maintenance &amp; Service Operations for a Puerto Rico Solar Energy Company</h3>
         <p data-i18n="projects.3.desc">Stand-up of AI-driven maintenance workflows and a structured service operations setup for a solar panel company in Puerto Rico. The engagement covered fleet monitoring, predictive maintenance routing, and service-delivery processes for residential and commercial solar installations across the island.</p>
-        <div class="project-metric">
-          <div class="metric-item"><span class="metric-num">AI</span><span class="metric-label" data-i18n="projects.3.m1">Maintenance Workflows</span></div>
-          <div class="metric-item"><span class="metric-num">PR</span><span class="metric-label" data-i18n="projects.3.m2">Caribbean Deployment</span></div>
-          <div class="metric-item"><span class="metric-num">24/7</span><span class="metric-label" data-i18n="projects.3.m3">Fleet Monitoring</span></div>
-        </div>
         <div class="project-tags">
           <span data-i18n="projects.3.tag1">Solar Energy</span><span data-i18n="projects.3.tag2">AI Maintenance</span><span data-i18n="projects.3.tag3">Service Operations</span><span data-i18n="projects.3.tag4">Renewable Energy</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials" id="testimonials">
-  <div class="section-inner reveal">
-    <div class="section-tag" data-i18n="testimonials.tag">What Clients Say</div>
-    <h2 data-i18n-html="testimonials.h2">Results that<br><em>speak for themselves</em></h2>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <p class="testimonial-text" data-i18n="testimonials.1.text">"EIT took a process that was eating 15 hours a week and turned it into something that runs on its own. The ROI was visible within the first month."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">M</div>
-          <div>
-            <span class="testimonial-name" data-i18n="testimonials.1.name">Operations Director</span>
-            <span class="testimonial-role" data-i18n="testimonials.1.role">Mid-size Distribution Company, PA</span>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <p class="testimonial-text" data-i18n="testimonials.2.text">"They didn't oversell. They asked the right questions, built exactly what we needed, and handed it over with documentation that actually made sense."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">S</div>
-          <div>
-            <span class="testimonial-name" data-i18n="testimonials.2.name">Founder &amp; CEO</span>
-            <span class="testimonial-role" data-i18n="testimonials.2.role">SaaS Startup, Northeast US</span>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <p class="testimonial-text" data-i18n="testimonials.3.text">"We had three systems that never talked to each other. EIT connected everything in under three weeks. Our team stopped complaining about data entry overnight."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">R</div>
-          <div>
-            <span class="testimonial-name" data-i18n="testimonials.3.name">VP of Technology</span>
-            <span class="testimonial-role" data-i18n="testimonials.3.role">Professional Services Firm</span>
-          </div>
         </div>
       </div>
     </div>
@@ -657,7 +636,6 @@ footer{background:var(--dark);color:var(--cream)}
         <p data-i18n-html="about.p1"><strong>EIT</strong> is a Philadelphia, PA-based IT consulting firm founded in 2022. We work with small and mid-size businesses that are tired of doing things the hard way and want systems that actually run.</p>
         <p data-i18n="about.p2">We don't do generic recommendations or vendor-neutral advice that goes nowhere. We get into your operations, find what's broken or slow, and build the automation that fixes it.</p>
         <p data-i18n-html="about.p3">Our specialty is <strong>n8n</strong>, modern integration platforms, and connecting practical tools to real business processes, not as a novelty but as working infrastructure.</p>
-        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80" alt="EIT team collaborating on client automation project" class="about-img" loading="lazy">
       </div>
       <div class="about-right">
         <div class="about-card">
@@ -743,7 +721,15 @@ footer{background:var(--dark);color:var(--cream)}
       </div>
     </div>
     <div class="contact-form-wrap">
-      <form id="contactForm" novalidate>
+      <form id="contactForm" action="https://formsubmit.co/info@eitllc.org" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New EIT website lead">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_autoresponse" value="Thanks for reaching out to EIT LLC. We received your message and will reply within one business day.">
+        <input type="hidden" name="page_url" id="hf_page_url">
+        <input type="hidden" name="language" id="hf_language">
+        <input type="hidden" name="timestamp" id="hf_timestamp">
+        <input type="hidden" name="referrer" id="hf_referrer">
         <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">
           <label>Leave this field blank: <input type="text" name="hp_company_role" id="hp_company_role" tabindex="-1" autocomplete="off"></label>
         </div>
@@ -845,7 +831,6 @@ footer{background:var(--dark);color:var(--cream)}
             <li><a href="#about" data-i18n="footer.cmp1">About EIT</a></li>
             <li><a href="#process" data-i18n="footer.cmp2">Our Process</a></li>
             <li><a href="#projects" data-i18n="footer.cmp3">Select Work</a></li>
-            <li><a href="#testimonials" data-i18n="footer.cmp4">Testimonials</a></li>
             <li><a href="#faq" data-i18n="footer.cmp5">FAQ</a></li>
           </ul>
         </div>
@@ -870,6 +855,7 @@ footer{background:var(--dark);color:var(--cream)}
 </footer>
 
 <div id="toast" role="alert" aria-live="polite" data-i18n="toast.sent">Message sent. We'll be in touch soon.</div>
+<div id="toast-error" role="alert" aria-live="assertive" data-i18n="toast.error">Couldn't send. Email info@eitllc.org or try again.</div>
 
 <script>
   // ── i18n dictionary ──
@@ -887,6 +873,17 @@ footer{background:var(--dark);color:var(--cream)}
       "hero.desc": "We build the automated infrastructure that lets small and mid-size businesses stop trading time for output and start scaling what actually works.",
       "hero.btn1": "Start a Conversation",
       "hero.btn2": "See Our Work",
+      "triggers.tag": "Sound Familiar?",
+      "triggers.h2": "If any of this is your<br><em>day-to-day</em>, we should talk.",
+      "triggers.desc": "The patterns we see most often inside small and mid-size operations. None of them require an enterprise budget to fix.",
+      "triggers.1": "Your team re-enters the same data into multiple systems every week.",
+      "triggers.2": "Leads sit in inboxes for hours or days before anyone follows up.",
+      "triggers.3": "Reports take half a day because the data lives in disconnected tools.",
+      "triggers.4": "Service requests, tickets, or orders are still routed by hand.",
+      "triggers.5": "Your founder or ops lead is still the glue between every system.",
+      "triggers.6": "You want AI inside your operations, but not as a risky science project.",
+      "triggers.ctaText": "If <strong>two or more</strong> of these sound like you, an automation audit will usually pay for itself before the first invoice clears.",
+      "triggers.ctaBtn": "Tell Us About It",
       "marquee.1": "n8n Automation",
       "marquee.2": "AI Workflows",
       "marquee.3": "Systems Integration",
@@ -927,14 +924,10 @@ footer{background:var(--dark);color:var(--cream)}
       "process.4.desc": "Your team is trained, documentation is delivered, and we stay available for questions, changes, and whatever comes next.",
       "projects.tag": "Select Work",
       "projects.h2": "Engagements that<br><em>moved the needle</em>",
-      "projects.desc": "Two recent consulting projects across very different industries. Same outcome: technology that works.",
+      "projects.desc": "Three recent consulting projects across very different industries. Same outcome: technology that works.",
       "projects.1.industry": "Smart City & Transportation Technology",
       "projects.1.title": "Enterprise IT Consulting for a Global Smart City & Transit Platform",
       "projects.1.desc": "Strategic technology consulting for an international company operating at the intersection of smart city infrastructure, connected transportation, IoT systems, and large-scale integration across multiple continents.",
-      "projects.1.m1": "Countries Active",
-      "projects.1.m2": "Faster Integration",
-      "projects.1.m3": "System Architecture",
-      "projects.1.m3num": "Multi",
       "projects.1.tag1": "Smart Cities",
       "projects.1.tag2": "IoT",
       "projects.1.tag3": "Fintech",
@@ -942,9 +935,6 @@ footer{background:var(--dark);color:var(--cream)}
       "projects.2.industry": "AI & Mining Technology",
       "projects.2.title": "Data Platform & Architecture for an AI-Powered Mining Analytics Company",
       "projects.2.desc": "Technology consulting for a firm building machine learning tools and analytics platforms for the mining industry. Contributed to data pipeline design, MLOps infrastructure, and value-chain optimization tooling.",
-      "projects.2.m1": "Faster Pipelines",
-      "projects.2.m2": "Less Manual Work",
-      "projects.2.m3": "Ops Infrastructure",
       "projects.2.tag1": "Artificial Intelligence",
       "projects.2.tag2": "Data Analytics",
       "projects.2.tag3": "Mining Tech",
@@ -952,24 +942,10 @@ footer{background:var(--dark);color:var(--cream)}
       "projects.3.industry": "Renewable Energy & Solar Operations",
       "projects.3.title": "AI-Driven Maintenance & Service Operations for a Puerto Rico Solar Energy Company",
       "projects.3.desc": "Stand-up of AI-driven maintenance workflows and a structured service operations setup for a solar panel company in Puerto Rico. The engagement covered fleet monitoring, predictive maintenance routing, and service-delivery processes for residential and commercial solar installations across the island.",
-      "projects.3.m1": "Maintenance Workflows",
-      "projects.3.m2": "Caribbean Deployment",
-      "projects.3.m3": "Fleet Monitoring",
       "projects.3.tag1": "Solar Energy",
       "projects.3.tag2": "AI Maintenance",
       "projects.3.tag3": "Service Operations",
       "projects.3.tag4": "Renewable Energy",
-      "testimonials.tag": "What Clients Say",
-      "testimonials.h2": "Results that<br><em>speak for themselves</em>",
-      "testimonials.1.text": "\"EIT took a process that was eating 15 hours a week and turned it into something that runs on its own. The ROI was visible within the first month.\"",
-      "testimonials.1.name": "Operations Director",
-      "testimonials.1.role": "Mid-size Distribution Company, PA",
-      "testimonials.2.text": "\"They didn't oversell. They asked the right questions, built exactly what we needed, and handed it over with documentation that actually made sense.\"",
-      "testimonials.2.name": "Founder & CEO",
-      "testimonials.2.role": "SaaS Startup, Northeast US",
-      "testimonials.3.text": "\"We had three systems that never talked to each other. EIT connected everything in under three weeks. Our team stopped complaining about data entry overnight.\"",
-      "testimonials.3.name": "VP of Technology",
-      "testimonials.3.role": "Professional Services Firm",
       "about.tag": "Who We Are",
       "about.h2": "We build systems,<br>not <em>slide decks.</em>",
       "about.p1": "<strong>EIT</strong> is a Philadelphia, PA-based IT consulting firm founded in 2022. We work with small and mid-size businesses that are tired of doing things the hard way and want systems that actually run.",
@@ -1032,6 +1008,7 @@ footer{background:var(--dark);color:var(--cream)}
       "form.message.err": "Please describe your situation.",
       "form.privacy": "We respect your privacy. Your information is never shared. <a href=\"privacy.html\">Privacy Policy</a>",
       "form.submit": "Send Message",
+      "form.sending": "Sending…",
       "form.note": "We respond within one business day.",
       "contact.alt": "Prefer email directly? <a href=\"mailto:info@eitllc.org\">info@eitllc.org</a>",
       "footer.brandDesc": "IT consulting & automation for small and mid-size businesses. Philadelphia-based, globally engaged.",
@@ -1052,7 +1029,8 @@ footer{background:var(--dark);color:var(--cream)}
       "footer.copyright": "© 2022–2026 EIT LLC. All rights reserved. Philadelphia, PA, USA",
       "footer.privacy": "Privacy Policy",
       "footer.terms": "Terms of Service",
-      "toast.sent": "Message sent. We'll be in touch soon."
+      "toast.sent": "Message sent. We'll be in touch soon.",
+      "toast.error": "Couldn't send. Email info@eitllc.org or try again."
     },
     es: {
       "skip": "Saltar al contenido principal",
@@ -1067,6 +1045,17 @@ footer{background:var(--dark);color:var(--cream)}
       "hero.desc": "Construimos la infraestructura automatizada que permite a las pequeñas y medianas empresas dejar de cambiar tiempo por resultados y empezar a escalar lo que realmente funciona.",
       "hero.btn1": "Iniciar una Conversación",
       "hero.btn2": "Ver Nuestro Trabajo",
+      "triggers.tag": "¿Te Suena?",
+      "triggers.h2": "Si algo de esto es tu<br><em>día a día</em>, deberíamos hablar.",
+      "triggers.desc": "Los patrones que vemos con más frecuencia en operaciones de pequeñas y medianas empresas. Ninguno requiere un presupuesto de gran corporación para resolverse.",
+      "triggers.1": "Tu equipo vuelve a ingresar los mismos datos en varios sistemas cada semana.",
+      "triggers.2": "Los leads quedan en correos durante horas o días antes de que alguien dé seguimiento.",
+      "triggers.3": "Los reportes toman medio día porque los datos viven en herramientas desconectadas.",
+      "triggers.4": "Las solicitudes de servicio, tickets u órdenes todavía se enrutan a mano.",
+      "triggers.5": "Tu fundador o líder de operaciones sigue siendo el pegamento entre cada sistema.",
+      "triggers.6": "Quieres IA dentro de tus operaciones, pero no como un experimento arriesgado.",
+      "triggers.ctaText": "Si <strong>dos o más</strong> de estos te suenan, una auditoría de automatización suele pagarse sola antes de la primera factura.",
+      "triggers.ctaBtn": "Cuéntanos",
       "marquee.1": "Automatización n8n",
       "marquee.2": "Flujos con IA",
       "marquee.3": "Integración de Sistemas",
@@ -1107,14 +1096,10 @@ footer{background:var(--dark);color:var(--cream)}
       "process.4.desc": "Tu equipo recibe capacitación, se entrega la documentación y permanecemos disponibles para preguntas, cambios y lo que venga después.",
       "projects.tag": "Trabajo Seleccionado",
       "projects.h2": "Proyectos que<br><em>marcaron la diferencia</em>",
-      "projects.desc": "Dos proyectos de consultoría recientes en industrias muy distintas. Mismo resultado: tecnología que funciona.",
+      "projects.desc": "Tres proyectos de consultoría recientes en industrias muy distintas. Mismo resultado: tecnología que funciona.",
       "projects.1.industry": "Ciudad Inteligente y Tecnología de Transporte",
       "projects.1.title": "Consultoría TI Empresarial para una Plataforma Global de Ciudad Inteligente y Transporte",
       "projects.1.desc": "Consultoría tecnológica estratégica para una empresa internacional que opera en la intersección de infraestructura de ciudad inteligente, transporte conectado, sistemas IoT e integración a gran escala en múltiples continentes.",
-      "projects.1.m1": "Países Activos",
-      "projects.1.m2": "Integración Más Rápida",
-      "projects.1.m3": "Arquitectura de Sistemas",
-      "projects.1.m3num": "Multi",
       "projects.1.tag1": "Ciudades Inteligentes",
       "projects.1.tag2": "IoT",
       "projects.1.tag3": "Fintech",
@@ -1122,9 +1107,6 @@ footer{background:var(--dark);color:var(--cream)}
       "projects.2.industry": "IA y Tecnología Minera",
       "projects.2.title": "Plataforma y Arquitectura de Datos para una Empresa de Análisis Minero con IA",
       "projects.2.desc": "Consultoría tecnológica para una empresa que desarrolla herramientas de aprendizaje automático y plataformas de análisis para la industria minera. Contribuimos al diseño de pipelines de datos, infraestructura MLOps y herramientas de optimización de la cadena de valor.",
-      "projects.2.m1": "Pipelines Más Rápidos",
-      "projects.2.m2": "Menos Trabajo Manual",
-      "projects.2.m3": "Infraestructura Ops",
       "projects.2.tag1": "Inteligencia Artificial",
       "projects.2.tag2": "Análisis de Datos",
       "projects.2.tag3": "Tecnología Minera",
@@ -1132,24 +1114,10 @@ footer{background:var(--dark);color:var(--cream)}
       "projects.3.industry": "Energía Renovable y Operaciones Solares",
       "projects.3.title": "Mantenimiento con IA y Operaciones de Servicio para una Empresa Solar de Puerto Rico",
       "projects.3.desc": "Implementación de flujos de mantenimiento impulsados por IA y una operación de servicio estructurada para una empresa de paneles solares en Puerto Rico. El proyecto cubrió monitoreo de flota, enrutamiento de mantenimiento predictivo y procesos de entrega de servicio para instalaciones solares residenciales y comerciales en toda la isla.",
-      "projects.3.m1": "Flujos de Mantenimiento",
-      "projects.3.m2": "Despliegue en el Caribe",
-      "projects.3.m3": "Monitoreo de Flota",
       "projects.3.tag1": "Energía Solar",
       "projects.3.tag2": "Mantenimiento con IA",
       "projects.3.tag3": "Operaciones de Servicio",
       "projects.3.tag4": "Energía Renovable",
-      "testimonials.tag": "Lo Que Dicen los Clientes",
-      "testimonials.h2": "Resultados que<br><em>hablan por sí mismos</em>",
-      "testimonials.1.text": "«EIT tomó un proceso que consumía 15 horas a la semana y lo convirtió en algo que se ejecuta solo. El ROI fue visible dentro del primer mes.»",
-      "testimonials.1.name": "Director de Operaciones",
-      "testimonials.1.role": "Empresa de Distribución Mediana, PA",
-      "testimonials.2.text": "«No exageraron. Hicieron las preguntas correctas, construyeron exactamente lo que necesitábamos y lo entregaron con documentación que realmente tenía sentido.»",
-      "testimonials.2.name": "Fundador y CEO",
-      "testimonials.2.role": "Startup SaaS, Noreste de EE.UU.",
-      "testimonials.3.text": "«Teníamos tres sistemas que nunca se comunicaban entre sí. EIT lo conectó todo en menos de tres semanas. Nuestro equipo dejó de quejarse de la entrada de datos de la noche a la mañana.»",
-      "testimonials.3.name": "VP de Tecnología",
-      "testimonials.3.role": "Firma de Servicios Profesionales",
       "about.tag": "Quiénes Somos",
       "about.h2": "Construimos sistemas,<br>no <em>presentaciones.</em>",
       "about.p1": "<strong>EIT</strong> es una firma de consultoría TI con sede en Filadelfia, Pensilvania, fundada en 2022. Trabajamos con pequeñas y medianas empresas cansadas de hacer las cosas a la antigua y que quieren sistemas que realmente funcionen.",
@@ -1212,6 +1180,7 @@ footer{background:var(--dark);color:var(--cream)}
       "form.message.err": "Por favor describe tu situación.",
       "form.privacy": "Respetamos tu privacidad. Tu información nunca se comparte. <a href=\"privacy.html\">Política de Privacidad</a>",
       "form.submit": "Enviar Mensaje",
+      "form.sending": "Enviando…",
       "form.note": "Respondemos en un día hábil.",
       "contact.alt": "¿Prefieres correo directo? <a href=\"mailto:info@eitllc.org\">info@eitllc.org</a>",
       "footer.brandDesc": "Consultoría TI y automatización para pequeñas y medianas empresas. Con sede en Filadelfia, proyección global.",
@@ -1232,7 +1201,8 @@ footer{background:var(--dark);color:var(--cream)}
       "footer.copyright": "© 2022–2026 EIT LLC. Todos los derechos reservados. Filadelfia, PA, EE.UU.",
       "footer.privacy": "Política de Privacidad",
       "footer.terms": "Términos del Servicio",
-      "toast.sent": "Mensaje enviado: estaremos en contacto pronto."
+      "toast.sent": "Mensaje enviado: estaremos en contacto pronto.",
+      "toast.error": "No se pudo enviar. Escribe a info@eitllc.org o intenta otra vez."
     }
   };
 
@@ -1351,6 +1321,9 @@ footer{background:var(--dark);color:var(--cream)}
   // Contact form with inline validation
   const form = document.getElementById('contactForm');
   const toast = document.getElementById('toast');
+  const toastError = document.getElementById('toast-error');
+  const submitBtn = form.querySelector('.form-submit');
+  const submitOriginal = submitBtn.textContent;
 
   function validateEmail(val) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
@@ -1369,21 +1342,30 @@ footer{background:var(--dark);color:var(--cream)}
     }
   }
 
-  form.addEventListener('submit', e => {
+  function showToast(el, ms) {
+    el.classList.add('show');
+    setTimeout(() => el.classList.remove('show'), ms || 4500);
+  }
+
+  function fillContextFields() {
+    document.getElementById('hf_page_url').value = window.location.href;
+    document.getElementById('hf_language').value = document.documentElement.lang || 'en';
+    document.getElementById('hf_timestamp').value = new Date().toISOString();
+    document.getElementById('hf_referrer').value = document.referrer || '';
+  }
+
+  form.addEventListener('submit', async e => {
     e.preventDefault();
 
     // Honeypot: bots fill hidden fields, humans don't.
     const hp = document.getElementById('hp_company_role');
     if (hp && hp.value) {
-      // Pretend success to avoid signaling bots that they were caught.
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 4500);
+      showToast(toast);
       form.reset();
       return;
     }
 
     let valid = true;
-
     const firstName = document.getElementById('firstName');
     const lastName = document.getElementById('lastName');
     const email = document.getElementById('email');
@@ -1396,9 +1378,32 @@ footer{background:var(--dark);color:var(--cream)}
 
     if (!valid) return;
 
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 4500);
-    form.reset();
+    fillContextFields();
+
+    const lang = document.documentElement.lang === 'es' ? 'es' : 'en';
+    const sendingLabel = (translations[lang] && translations[lang]['form.sending']) || 'Sending…';
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = sendingLabel;
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      if (!res.ok) throw new Error('Network error: ' + res.status);
+      const data = await res.json().catch(() => ({}));
+      if (data && data.success === 'false') throw new Error(data.message || 'Submission failed');
+
+      showToast(toast);
+      form.reset();
+    } catch (err) {
+      showToast(toastError, 6500);
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = (translations[lang] && translations[lang]['form.submit']) || submitOriginal;
+    }
   });
 
   // Clear errors on input
