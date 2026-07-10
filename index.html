@@ -136,14 +136,15 @@ nav.light .nav-hamburger span{background:var(--text)}
 
 /* ── HERO ── */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:var(--dark)}
-.hero-globe{position:absolute;z-index:0;top:50%;right:-16%;width:1400px;height:1400px;border-radius:50%;transform:translateY(-50%);
+.hero-globe{position:absolute;z-index:0;top:50%;right:-16%;width:1400px;height:1400px;border-radius:50%;overflow:hidden;transform:translateY(-50%);
+  box-shadow:0 0 220px 44px rgba(34,196,224,.16)}
+.hero-globe-tex{position:absolute;top:0;left:0;height:100%;width:5600px;
   background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/The_earth_at_night.jpg/1920px-The_earth_at_night.jpg');
-  background-size:2800px 1400px;background-repeat:repeat-x;background-position-x:0;background-position-y:center;
-  box-shadow:0 0 220px 44px rgba(34,196,224,.16),inset -120px 0 180px 40px rgba(2,8,20,.96),inset 80px 0 140px rgba(34,196,224,.05);
-  animation:spin-earth 55s linear infinite;will-change:background-position}
-.hero-globe::after{content:'';position:absolute;inset:0;border-radius:50%;pointer-events:none;
-  background:radial-gradient(circle at 34% 32%,rgba(120,200,230,.16),transparent 42%),radial-gradient(circle at 50% 50%,transparent 58%,rgba(2,8,20,.4) 82%,rgba(2,8,20,.75) 100%)}
-@keyframes spin-earth{from{background-position-x:0}to{background-position-x:-2800px}}
+  background-size:2800px 1400px;background-repeat:repeat-x;
+  animation:spin-earth 55s linear infinite;will-change:transform}
+.hero-globe::after{content:'';position:absolute;inset:0;border-radius:50%;pointer-events:none;z-index:1;
+  background:radial-gradient(circle at 33% 30%,rgba(130,205,235,.18),transparent 45%),linear-gradient(105deg,transparent 45%,rgba(2,8,20,.55) 78%,rgba(2,8,20,.9) 100%),radial-gradient(circle at 50% 50%,transparent 61%,rgba(2,8,20,.45) 85%,rgba(2,8,20,.82) 100%)}
+@keyframes spin-earth{from{transform:translateX(0)}to{transform:translateX(-2800px)}}
 .hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;
   background:linear-gradient(to top,rgba(4,18,43,.97) 12%,rgba(4,18,43,.35) 55%,rgba(4,18,43,.15) 100%),linear-gradient(to right,rgba(4,18,43,.9) 0%,rgba(4,18,43,.45) 38%,rgba(4,18,43,0) 68%)}
 @media (max-width:900px){.hero-globe{transform:translateY(-50%) scale(.52);right:-34%}}
@@ -435,7 +436,7 @@ footer{background:var(--dark);color:var(--cream)}
 
 <!-- HERO -->
 <section class="hero" id="home" aria-label="Hero">
-  <div class="hero-globe" role="img" aria-label="Rotating globe showing Earth at night"></div>
+  <div class="hero-globe" role="img" aria-label="Rotating globe showing Earth at night"><div class="hero-globe-tex" aria-hidden="true"></div></div>
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-inner" id="main">
     <div class="hero-eyebrow" data-i18n="hero.eyebrow">IT Consulting &amp; Automation &nbsp;·&nbsp; Philadelphia, PA</div>
@@ -1427,6 +1428,24 @@ footer{background:var(--dark);color:var(--cream)}
     const errId = id + 'Err';
     document.getElementById(id).addEventListener('input', () => setError(id, errId, false));
   });
+</script>
+<script>
+  /* Pause the hero globe spin when it's off-screen or the tab is hidden — saves CPU/battery */
+  (function () {
+    const globe = document.querySelector('.hero-globe');
+    const tex = globe && globe.querySelector('.hero-globe-tex');
+    if (!tex) return;
+    let onScreen = true;
+    const apply = () => { tex.style.animationPlayState = (onScreen && !document.hidden) ? 'running' : 'paused'; };
+    document.addEventListener('visibilitychange', apply);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        onScreen = entries[0].isIntersecting;
+        apply();
+      }, { threshold: 0 }).observe(document.querySelector('.hero') || globe);
+    }
+    apply();
+  })();
 </script>
 </body>
 </html>
