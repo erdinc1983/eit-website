@@ -53,33 +53,33 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --dark:#353f4e;
-  --dark2:#3e4a5a;
-  --dark3:#475566;
-  --slate:#5c7a8a;
-  --slate2:#6e8e9e;
-  --cream:#faf9f6;
-  --cream2:#f2f0eb;
-  --cream3:#e8e5de;
+  --dark:#04122b;
+  --dark2:#0a1d3f;
+  --dark3:#122a54;
+  --slate:#1c3a63;
+  --slate2:#27497a;
+  --cream:#ffffff;
+  --cream2:#f2f5f9;
+  --cream3:#e3e9f1;
   --white:#ffffff;
-  --text:#282f39;
-  --text-mid:#3d4552;
-  --text-muted:#5a6070;
-  --accent:#8b6d2e;
-  --accent2:#a07e38;
-  --accent-light:#c9a050;
-  --accent-pale:rgba(139,109,46,.08);
-  --icon:#5c7a8a;
+  --text:#0c1a2e;
+  --text-mid:#2c3c52;
+  --text-muted:#5b6b82;
+  --accent:#0b6cff;
+  --accent2:#0857d6;
+  --accent-light:#5aa2ff;
+  --accent-pale:rgba(11,108,255,.08);
+  --icon:#0b6cff;
   --error:#c0392b;
-  --border:rgba(0,0,0,.09);
-  --border2:rgba(0,0,0,.13);
-  --border-dark:rgba(255,255,255,.1);
-  --serif:'Playfair Display',Georgia,serif;
-  --sans:'DM Sans','Helvetica Neue',Arial,sans-serif;
+  --border:rgba(7,26,54,.09);
+  --border2:rgba(7,26,54,.13);
+  --border-dark:rgba(255,255,255,.12);
+  --serif:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --sans:'Archivo','Helvetica Neue',Arial,sans-serif;
 }
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:var(--sans);background:var(--cream);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
@@ -91,7 +91,7 @@ a{color:inherit;text-decoration:none}
 
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s,border-color .4s}
-nav.dark{background:rgba(53,63,78,.97);border-bottom:1px solid rgba(92,122,138,.2)}
+nav.dark{background:rgba(4,18,43,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
 nav.light{background:rgba(250,249,246,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
 .nav-inner{max-width:1280px;margin:0 auto;padding:0 2.5rem;height:76px;display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center}
@@ -115,7 +115,7 @@ nav.light .nav-cta:hover{background:var(--accent);color:var(--white)}
 .lang-switch button{background:none;border:none;cursor:pointer;color:inherit;font:inherit;letter-spacing:inherit;text-transform:inherit;padding:.4rem .65rem;transition:background .2s,color .2s}
 .lang-switch button.active{background:currentColor}
 .lang-switch button.active span{color:var(--dark)}
-nav.dark .lang-switch{border-color:rgba(201,160,80,.55);color:rgba(250,249,246,.7)}
+nav.dark .lang-switch{border-color:rgba(90,162,255,.5);color:rgba(250,249,246,.7)}
 nav.dark .lang-switch button:hover{color:var(--accent-light)}
 nav.dark .lang-switch button.active{background:var(--accent-light)}
 nav.dark .lang-switch button.active span{color:var(--dark)}
@@ -136,12 +136,12 @@ nav.light .nav-hamburger span{background:var(--text)}
 
 /* ── HERO ── */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:var(--dark)}
-.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80');background-size:cover;background-position:center;opacity:.32}
-.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(53,63,78,.96) 28%,rgba(53,63,78,.5) 100%)}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');background-size:cover;background-position:center;opacity:.5}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(4,18,43,.96) 25%,rgba(4,18,43,.45) 100%)}
 .hero-inner{max-width:1280px;margin:0 auto;padding:0 2.5rem 5rem;width:100%;position:relative;z-index:1}
 .hero-eyebrow{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent-light);margin-bottom:2rem;display:flex;align-items:center;gap:.85rem;opacity:.95}
-h1{font-family:var(--serif);font-size:clamp(3rem,6.5vw,5.5rem);font-weight:400;line-height:1.08;max-width:900px;color:var(--cream);letter-spacing:-.02em;margin-bottom:2.5rem}
-h1 em{font-style:italic;color:var(--accent-light)}
+h1{font-family:var(--sans);font-size:clamp(2.9rem,6vw,5.2rem);font-weight:700;line-height:1.05;max-width:960px;color:var(--white);letter-spacing:-.03em;margin-bottom:2.5rem}
+h1 em{font-style:normal;color:var(--accent-light)}
 .hero-bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;flex-wrap:wrap}
 .hero-desc{font-size:1rem;color:rgba(250,249,246,.78);max-width:420px;line-height:1.85;font-weight:300}
 .hero-actions{display:flex;gap:1rem;align-items:center;flex-shrink:0}
@@ -163,17 +163,17 @@ section{padding:7rem 2.5rem}
 .section-inner{max-width:1280px;margin:0 auto}
 .section-tag{font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem;display:flex;align-items:center;gap:.8rem}
 .section-tag::before{content:'';width:1.75rem;height:1px;background:var(--accent)}
-h2{font-family:var(--serif);font-size:clamp(2rem,3.8vw,3.2rem);font-weight:400;line-height:1.18;margin-bottom:1.5rem;letter-spacing:-.01em}
-h2 em{font-style:italic;color:var(--accent)}
+h2{font-family:var(--sans);font-size:clamp(2rem,3.8vw,3.1rem);font-weight:700;line-height:1.12;margin-bottom:1.5rem;letter-spacing:-.02em}
+h2 em{font-style:normal;color:var(--accent)}
 .section-desc{color:var(--text-muted);max-width:580px;font-size:1rem;line-height:1.9;font-weight:300}
 
 /* ── STATS BAR ── */
-.stats-bar{background:var(--dark2);border-bottom:1px solid var(--border-dark)}
+.stats-bar{background:var(--white);border-bottom:1px solid var(--border)}
 .stats-inner{max-width:1280px;margin:0 auto;padding:0 2.5rem;display:grid;grid-template-columns:repeat(4,1fr)}
-.stat{padding:2.75rem 1.5rem;text-align:center;border-right:1px solid var(--border-dark)}
+.stat{padding:3rem 1.5rem;text-align:left;border-right:1px solid var(--border)}
 .stat:last-child{border-right:none}
-.stat-num{font-family:var(--serif);font-size:2.2rem;color:var(--accent-light);margin-bottom:.4rem;font-weight:400}
-.stat-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,249,246,.6)}
+.stat-num{font-family:var(--sans);font-size:2.7rem;color:var(--accent);margin-bottom:.4rem;font-weight:700;letter-spacing:-.02em}
+.stat-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted)}
 
 /* ── DIAGNOSTIC TRIGGERS ── */
 .triggers{background:var(--white)}
@@ -188,34 +188,24 @@ h2 em{font-style:italic;color:var(--accent)}
 
 /* ── SERVICES BENTO ── */
 .services{background:var(--cream2)}
-.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;margin-top:4rem;background:var(--border2)}
-.bento-card{background:var(--cream2);padding:2.75rem;transition:background .3s;position:relative;overflow:hidden}
-.bento-card:hover{background:var(--white)}
-.bento-card.wide{grid-column:span 3}
-.bento-card.narrow{grid-column:span 3}
-.bento-card.featured{grid-column:span 4;background:var(--dark);color:var(--cream)}
-.bento-card.featured:hover{background:var(--dark2)}
-.bento-card.accent{grid-column:span 2;background:var(--slate);color:var(--white)}
-.bento-card.accent:hover{background:var(--slate2)}
-.bento-num{font-family:var(--serif);font-size:1rem;color:var(--accent);margin-bottom:1.5rem;opacity:.45}
-.bento-card.featured .bento-num{color:var(--accent-light)}
-.bento-card.accent .bento-num{color:rgba(255,255,255,.4)}
-.bento-icon{width:44px;height:44px;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;border:1px solid;opacity:.8}
-.bento-card:not(.featured):not(.accent) .bento-icon{border-color:rgba(92,122,138,.25);color:var(--icon)}
-.bento-card.featured .bento-icon{border-color:rgba(201,160,80,.3);color:var(--accent-light)}
-.bento-card.accent .bento-icon{border-color:rgba(255,255,255,.3);color:var(--white)}
-.bento-card h3{font-family:var(--serif);font-size:1.2rem;font-weight:400;margin-bottom:.7rem;line-height:1.3}
-.bento-card.featured h3{color:var(--cream)}
-.bento-card.accent h3{color:var(--white)}
-.bento-card p{font-size:.875rem;line-height:1.8;font-weight:300}
-.bento-card:not(.featured):not(.accent) p{color:var(--text-muted)}
-.bento-card.featured p{color:rgba(250,249,246,.78)}
-.bento-card.accent p{color:rgba(255,255,255,.82)}
-.bento-arrow{position:absolute;bottom:2.25rem;right:2.25rem;width:32px;height:32px;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateX(-6px);transition:opacity .25s,transform .25s}
-.bento-card:hover .bento-arrow{opacity:1;transform:translateX(0)}
-.bento-card:not(.featured):not(.accent) .bento-arrow{color:var(--accent)}
-.bento-card.featured .bento-arrow{color:var(--accent-light)}
-.bento-card.accent .bento-arrow{color:var(--white)}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;margin-top:4rem}
+.bento-card{position:relative;overflow:hidden;padding:2.5rem;min-height:360px;display:flex;flex-direction:column;justify-content:flex-end;background:var(--dark);color:var(--white);grid-column:span 2}
+.bento-card::before{content:'';position:absolute;inset:0;background-size:cover;background-position:center;opacity:.55;transition:transform .6s ease,opacity .4s}
+.bento-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(4,18,43,.96) 12%,rgba(4,18,43,.4) 65%,rgba(4,18,43,.15) 100%)}
+.bento-card:hover::before{transform:scale(1.06);opacity:.7}
+.bento-card:nth-child(1)::before{background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80')}
+.bento-card:nth-child(2)::before{background-image:url('https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=900&q=80')}
+.bento-card:nth-child(3)::before{background-image:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80')}
+.bento-card:nth-child(4)::before{background-image:url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=900&q=80')}
+.bento-card:nth-child(5)::before{background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80')}
+.bento-card:nth-child(6)::before{background-image:url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80')}
+.bento-card>*{position:relative;z-index:1}
+.bento-num{font-size:.7rem;letter-spacing:.24em;color:var(--accent-light);margin-bottom:1rem;font-weight:600}
+.bento-icon{display:none}
+.bento-card h3{font-family:var(--sans);font-size:1.3rem;font-weight:700;margin-bottom:.65rem;line-height:1.25;color:var(--white);letter-spacing:-.01em}
+.bento-card p{font-size:.85rem;line-height:1.7;font-weight:400;color:rgba(255,255,255,.82)}
+.bento-arrow{margin-top:1.25rem;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.35);color:var(--white);transition:background .25s,border-color .25s,transform .25s}
+.bento-card:hover .bento-arrow{background:var(--accent);border-color:var(--accent);transform:translateX(4px)}
 
 /* ── PROCESS ── */
 .process{background:var(--white)}
@@ -225,8 +215,8 @@ h2 em{font-style:italic;color:var(--accent)}
 .process-step:hover{background:var(--cream2)}
 .process-step::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .4s}
 .process-step:hover::before{transform:scaleX(1)}
-.process-num{font-family:var(--serif);font-size:2.5rem;color:var(--accent);margin-bottom:1.5rem;font-weight:400;opacity:.25;line-height:1}
-.process-step h3{font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:.65rem}
+.process-num{font-family:var(--sans);font-size:2.5rem;color:var(--accent);margin-bottom:1.5rem;font-weight:700;opacity:.25;line-height:1;letter-spacing:-.02em}
+.process-step h3{font-family:var(--sans);font-size:1.1rem;font-weight:700;margin-bottom:.65rem}
 .process-step p{font-size:.875rem;color:var(--text-muted);line-height:1.8;font-weight:300}
 
 /* ── PROJECTS ── */
@@ -238,12 +228,12 @@ h2 em{font-style:italic;color:var(--accent)}
 .project-card::after{content:'';position:absolute;top:0;left:0;bottom:0;width:2px;background:var(--accent);transform:scaleY(0);transform-origin:top;transition:transform .4s}
 .project-card:hover::after{transform:scaleY(1)}
 .project-industry{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem;font-weight:500}
-.project-card h3{font-family:var(--serif);font-size:1.35rem;font-weight:400;margin-bottom:1rem;line-height:1.3;max-width:460px}
+.project-card h3{font-family:var(--sans);font-size:1.3rem;font-weight:700;margin-bottom:1rem;line-height:1.3;max-width:460px;letter-spacing:-.01em}
 .project-card p{font-size:.9rem;color:var(--text-muted);line-height:1.85;margin-bottom:1.25rem;font-weight:300;max-width:480px}
 .project-metric{display:flex;gap:2rem;margin-bottom:1.5rem;padding:1rem 1.25rem;background:var(--white);border:1px solid var(--border2)}
 .project-card:hover .project-metric{background:var(--cream2)}
 .metric-item{text-align:center}
-.metric-num{font-family:var(--serif);font-size:1.4rem;color:var(--accent);font-weight:400;display:block}
+.metric-num{font-family:var(--sans);font-size:1.4rem;color:var(--accent);font-weight:700;display:block}
 .metric-label{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)}
 .project-tags{display:flex;flex-wrap:wrap;gap:.5rem}
 .project-tags span{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .75rem;border:1px solid var(--border2);color:var(--text-muted);background:transparent}
@@ -252,7 +242,7 @@ h2 em{font-style:italic;color:var(--accent)}
 .testimonials{background:var(--white)}
 .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem}
 .testimonial-card{background:var(--cream2);border:1px solid var(--border2);padding:2.25rem;position:relative;transition:box-shadow .3s,border-color .3s}
-.testimonial-card:hover{box-shadow:0 8px 40px rgba(53,63,78,.08);border-color:rgba(139,109,46,.2)}
+.testimonial-card:hover{box-shadow:0 8px 40px rgba(4,18,43,.08);border-color:rgba(11,108,255,.2)}
 .testimonial-card::before{content:'\201C';font-family:var(--serif);font-size:4rem;color:var(--accent);opacity:.15;position:absolute;top:.75rem;left:1.5rem;line-height:1}
 .testimonial-text{font-size:.95rem;color:var(--text-mid);line-height:1.8;font-style:italic;margin-bottom:1.5rem;padding-top:1rem}
 .testimonial-author{display:flex;align-items:center;gap:.75rem}
@@ -274,13 +264,13 @@ h2 em{font-style:italic;color:var(--accent)}
 .about-card:hover{background:var(--dark3)}
 .about-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--accent-light);transform:scaleX(0);transform-origin:left;transition:transform .4s}
 .about-card:hover::before{transform:scaleX(1)}
-.about-card h3{font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:.7rem;color:var(--cream)}
+.about-card h3{font-family:var(--sans);font-size:1.1rem;font-weight:700;margin-bottom:.7rem;color:var(--cream)}
 .about-card p{font-size:.875rem;color:rgba(250,249,246,.72);line-height:1.8;font-weight:300}
 .about-img{width:100%;height:260px;object-fit:cover;margin-top:1.5rem;opacity:.55;filter:grayscale(15%)}
 
 /* ── CONTACT ── */
 .contact{background:var(--cream);text-align:center;position:relative;overflow:hidden}
-.contact::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(139,109,46,.05),transparent 65%);pointer-events:none}
+.contact::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(11,108,255,.06),transparent 65%);pointer-events:none}
 .contact .section-tag{justify-content:center}
 .contact .section-tag::before{display:none}
 .contact h2{max-width:640px;margin:0 auto 1.25rem}
@@ -296,7 +286,7 @@ h2 em{font-style:italic;color:var(--accent)}
 .form-group label{font-size:.65rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-mid);font-weight:600}
 .required-star{color:var(--accent);margin-left:2px}
 .form-group input,.form-group textarea,.form-group select{width:100%;padding:.8rem 1.05rem;font-family:var(--sans);font-size:.95rem;border:1px solid var(--border2);background:var(--white);color:var(--text);outline:none;transition:border-color .25s,box-shadow .25s;-webkit-appearance:none;appearance:none;border-radius:0}
-.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(139,109,46,.1)}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(11,108,255,.12)}
 .form-group input.error,.form-group textarea.error{border-color:var(--error)}
 .field-error{font-size:.72rem;color:var(--error);margin-top:.25rem;display:none}
 .field-error.visible{display:block}
@@ -305,10 +295,10 @@ h2 em{font-style:italic;color:var(--accent)}
 .form-privacy{font-size:.72rem;color:var(--text-muted);text-align:center;margin-top:1.25rem}
 .form-privacy a{color:var(--accent);text-decoration:underline}
 .form-submit{width:100%;margin-top:.75rem;padding:1rem;font-family:var(--sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;background:var(--accent2);color:var(--white);border:none;cursor:pointer;font-weight:600;transition:all .25s;border-radius:0}
-.form-submit:hover{background:var(--accent);box-shadow:0 4px 16px rgba(139,109,46,.25);transform:translateY(-1px)}
+.form-submit:hover{background:var(--accent);box-shadow:0 4px 16px rgba(11,108,255,.3);transform:translateY(-1px)}
 .form-note{font-size:.75rem;color:var(--text-muted);text-align:center;margin-top:.85rem}
 .contact-alt{margin-top:2rem;font-size:.82rem;color:var(--text-muted)}
-.contact-alt a{color:var(--accent);border-bottom:1px solid rgba(139,109,46,.3);padding-bottom:1px;transition:border-color .2s}
+.contact-alt a{color:var(--accent);border-bottom:1px solid rgba(11,108,255,.35);padding-bottom:1px;transition:border-color .2s}
 .contact-alt a:hover{border-color:var(--accent)}
 
 /* ── FOOTER ── */
@@ -353,10 +343,7 @@ footer{background:var(--dark);color:var(--cream)}
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
-  .bento-card.featured{grid-column:span 6}
-  .bento-card.accent{grid-column:span 3}
-  .bento-card.wide{grid-column:span 3}
-  .bento-card.narrow{grid-column:span 3}
+  .bento-card{grid-column:span 3}
   .about-inner{gap:3.5rem}
   .testimonials-grid{grid-template-columns:1fr 1fr}
 }
@@ -371,7 +358,7 @@ footer{background:var(--dark);color:var(--cream)}
   .stats-inner{grid-template-columns:repeat(2,1fr)}
   .stat:nth-child(2){border-right:none}
   .bento{grid-template-columns:1fr 1fr}
-  .bento-card.featured,.bento-card.accent,.bento-card.wide,.bento-card.narrow{grid-column:span 2}
+  .bento-card{grid-column:span 1}
   .process-grid{grid-template-columns:1fr 1fr}
   .process-step:nth-child(2){border-right:none}
   .process-step:nth-child(3){border-top:1px solid var(--border2)}
@@ -389,7 +376,7 @@ footer{background:var(--dark);color:var(--cream)}
   h1{font-size:2.2rem}
   .stats-inner{grid-template-columns:1fr 1fr;padding:0 1.5rem}
   .bento{grid-template-columns:1fr}
-  .bento-card.featured,.bento-card.accent,.bento-card.wide,.bento-card.narrow{grid-column:span 1}
+  .bento-card{grid-column:span 1;min-height:300px}
   .process-grid{grid-template-columns:1fr;border:1px solid var(--border2)}
   .process-step{border-right:none;border-bottom:1px solid var(--border2)}
   .process-step:last-child{border-bottom:none}
@@ -441,9 +428,9 @@ footer{background:var(--dark);color:var(--cream)}
   <div class="hero-bg" role="img" aria-label="Modern workspace ambiance"></div>
   <div class="hero-inner" id="main">
     <div class="hero-eyebrow" data-i18n="hero.eyebrow">IT Consulting &amp; Automation &nbsp;·&nbsp; Philadelphia, PA</div>
-    <h1 data-i18n-html="hero.title">Stop doing manually<br>what systems can do<br><em>automatically.</em></h1>
+    <h1 data-i18n-html="hero.title">Turn manual work<br>into systems that<br><em>run themselves.</em></h1>
     <div class="hero-bottom">
-      <p class="hero-desc" data-i18n="hero.desc">We build the automated infrastructure that lets small and mid-size businesses stop trading time for output and start scaling what actually works.</p>
+      <p class="hero-desc" data-i18n="hero.desc">We build the automated infrastructure that lets small and mid-size businesses move from trading time for output to scaling what actually works.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn-primary" data-i18n="hero.btn1">Start a Conversation</a>
         <a href="#services" class="btn-ghost-light" data-i18n="hero.btn2">See Our Work</a>
@@ -480,9 +467,9 @@ footer{background:var(--dark);color:var(--cream)}
 <div class="stats-bar">
   <div class="stats-inner">
     <div class="stat"><div class="stat-num">2022</div><div class="stat-label" data-i18n="stats.founded">Founded</div></div>
-    <div class="stat"><div class="stat-num" data-i18n="stats.focusNum">SMB</div><div class="stat-label" data-i18n="stats.focus">Focus</div></div>
-    <div class="stat"><div class="stat-num">PA</div><div class="stat-label" data-i18n="stats.based">Based In</div></div>
-    <div class="stat"><div class="stat-num" data-i18n="stats.reachNum">Global</div><div class="stat-label" data-i18n="stats.reach">Reach</div></div>
+    <div class="stat"><div class="stat-num">4</div><div class="stat-label" data-i18n="stats.focus">Industries Served</div></div>
+    <div class="stat"><div class="stat-num">2–6</div><div class="stat-label" data-i18n="stats.based">Weeks to Delivery</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label" data-i18n="stats.reach">Client Code Ownership</div></div>
   </div>
 </div>
 
@@ -491,7 +478,7 @@ footer{background:var(--dark);color:var(--cream)}
   <div class="section-inner reveal">
     <div class="section-tag" data-i18n="triggers.tag">Sound Familiar?</div>
     <h2 data-i18n-html="triggers.h2">If any of this is your<br><em>day-to-day</em>, we should talk.</h2>
-    <p class="section-desc" data-i18n="triggers.desc">The patterns we see most often inside small and mid-size operations. None of them require an enterprise budget to fix.</p>
+    <p class="section-desc" data-i18n="triggers.desc">The patterns we see most often inside small and mid-size operations, and every one is fixable without an enterprise budget.</p>
     <div class="triggers-grid">
       <div class="trigger-item"><span class="trigger-num">01</span><span class="trigger-text" data-i18n="triggers.1">Your team re-enters the same data into multiple systems every week.</span></div>
       <div class="trigger-item"><span class="trigger-num">02</span><span class="trigger-text" data-i18n="triggers.2">Leads sit in inboxes for hours or days before anyone follows up.</span></div>
@@ -525,14 +512,14 @@ footer{background:var(--dark);color:var(--cream)}
         <div class="bento-num">02</div>
         <div class="bento-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <h3 data-i18n="services.2.title">Process Consulting</h3>
-        <p data-i18n="services.2.desc">Before building anything, we map what you have, find where time and money are being lost, and build a prioritized plan that pays back fast. No busywork. No fluff.</p>
+        <p data-i18n="services.2.desc">Before building anything, we map what you have, find where time and money are being lost, and build a prioritized plan that pays back fast — practical steps only, prioritized by payback.</p>
         <div class="bento-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </div>
       <div class="bento-card wide">
         <div class="bento-num">03</div>
         <div class="bento-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
         <h3 data-i18n="services.3.title">Systems Integration</h3>
-        <p data-i18n="services.3.desc">Your CRM, ERP, accounting platform, and every other tool in your stack, connected and talking to each other. No more manual exports or copy-paste handoffs between systems.</p>
+        <p data-i18n="services.3.desc">Your CRM, ERP, accounting platform, and every other tool in your stack, connected and talking to each other, so data moves on its own and manual exports and copy-paste handoffs are behind you.</p>
         <div class="bento-arrow" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </div>
       <div class="bento-card wide">
@@ -565,7 +552,7 @@ footer{background:var(--dark);color:var(--cream)}
   <div class="section-inner reveal">
     <div class="section-tag" data-i18n="process.tag">How We Work</div>
     <h2 data-i18n-html="process.h2">Four steps from<br><em>problem to production</em></h2>
-    <p class="section-desc" data-i18n="process.desc">A clean process with no surprises. You'll know what's happening and why at every stage.</p>
+    <p class="section-desc" data-i18n="process.desc">A clear, transparent process. You'll know what's happening and why at every stage.</p>
     <div class="process-grid">
       <div class="process-step">
         <div class="process-num">01</div>
@@ -596,7 +583,7 @@ footer{background:var(--dark);color:var(--cream)}
   <div class="section-inner reveal">
     <div class="section-tag" data-i18n="projects.tag">Select Work</div>
     <h2 data-i18n-html="projects.h2">Engagements that<br><em>moved the needle</em></h2>
-    <p class="section-desc" data-i18n="projects.desc">Three recent consulting projects across very different industries. Same outcome: technology that works.</p>
+    <p class="section-desc" data-i18n="projects.desc">Four recent consulting projects across very different industries. Same outcome: technology that works.</p>
     <div class="projects-grid">
       <div class="project-card">
         <div class="project-industry" data-i18n="projects.1.industry">Smart City &amp; Transportation Technology</div>
@@ -614,12 +601,20 @@ footer{background:var(--dark);color:var(--cream)}
           <span data-i18n="projects.2.tag1">Artificial Intelligence</span><span data-i18n="projects.2.tag2">Data Analytics</span><span data-i18n="projects.2.tag3">Mining Tech</span><span data-i18n="projects.2.tag4">ML Ops</span>
         </div>
       </div>
-      <div class="project-card full">
+      <div class="project-card">
         <div class="project-industry" data-i18n="projects.3.industry">Renewable Energy &amp; Solar Operations</div>
         <h3 data-i18n="projects.3.title">AI-Driven Maintenance &amp; Service Operations for a Puerto Rico Solar Energy Company</h3>
         <p data-i18n="projects.3.desc">Stand-up of AI-driven maintenance workflows and a structured service operations setup for a solar panel company in Puerto Rico. The engagement covered fleet monitoring, predictive maintenance routing, and service-delivery processes for residential and commercial solar installations across the island.</p>
         <div class="project-tags">
           <span data-i18n="projects.3.tag1">Solar Energy</span><span data-i18n="projects.3.tag2">AI Maintenance</span><span data-i18n="projects.3.tag3">Service Operations</span><span data-i18n="projects.3.tag4">Renewable Energy</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-industry" data-i18n="projects.4.industry">AI Readiness &amp; Workforce Enablement</div>
+        <h3 data-i18n="projects.4.title">Custom Operations Platform for an AI Readiness &amp; Adoption Consulting Firm</h3>
+        <p data-i18n="projects.4.desc">A multi-tenant admin platform built to run an entire AI readiness and 30-day adoption practice from a single tool. Replaces manual scoring, ad-hoc training plans, and stitched-together deliverables with one end-to-end workflow: 50-question assessments scored across 7 readiness dimensions, automated training path recommendations, 30-day adoption plans, and branded PDF reports at every milestone. A row-level-secured client portal lets each company manager self-serve. The outcome: shorter engagement cycles, consistent deliverables, and the ability to scale without growing headcount.</p>
+        <div class="project-tags">
+          <span data-i18n="projects.4.tag1">AI Readiness</span><span data-i18n="projects.4.tag2">Workforce Enablement</span><span data-i18n="projects.4.tag3">Multi-Tenant SaaS</span><span data-i18n="projects.4.tag4">Reporting Automation</span>
         </div>
       </div>
     </div>
@@ -634,17 +629,17 @@ footer{background:var(--dark);color:var(--cream)}
         <div class="section-tag" data-i18n="about.tag">Who We Are</div>
         <h2 data-i18n-html="about.h2">We build systems,<br>not <em>slide decks.</em></h2>
         <p data-i18n-html="about.p1"><strong>EIT</strong> is a Philadelphia, PA-based IT consulting firm founded in 2022. We work with small and mid-size businesses that are tired of doing things the hard way and want systems that actually run.</p>
-        <p data-i18n="about.p2">We don't do generic recommendations or vendor-neutral advice that goes nowhere. We get into your operations, find what's broken or slow, and build the automation that fixes it.</p>
+        <p data-i18n="about.p2">We get into your operations, find what's slowing you down, and build the automation that fixes it — practical work, not shelfware.</p>
         <p data-i18n-html="about.p3">Our specialty is <strong>n8n</strong>, modern integration platforms, and connecting practical tools to real business processes, not as a novelty but as working infrastructure.</p>
       </div>
       <div class="about-right">
         <div class="about-card">
           <h3 data-i18n="about.c1.title">You Own What We Build</h3>
-          <p data-i18n="about.c1.desc">No proprietary platforms, no lock-in. Every workflow and integration is fully yours to modify, maintain, or hand to anyone else.</p>
+          <p data-i18n="about.c1.desc">Every workflow and integration is fully yours to modify, maintain, or hand to anyone else — built on open tools, with no lock-in.</p>
         </div>
         <div class="about-card">
           <h3 data-i18n="about.c2.title">Built for Your Stage of Growth</h3>
-          <p data-i18n="about.c2.desc">Enterprise-grade automation doesn't require an enterprise budget. We start small, prove value fast, and build from there.</p>
+          <p data-i18n="about.c2.desc">Enterprise-grade automation fits a growing company's budget. We start small, prove value fast, and build from there.</p>
         </div>
         <div class="about-card">
           <h3 data-i18n="about.c3.title">Practitioners, Not Consultants</h3>
@@ -677,7 +672,7 @@ footer{background:var(--dark);color:var(--cream)}
           <span data-i18n="faq.q2">Do I need to know anything about n8n or automation tools?</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
         </button>
-        <div class="faq-answer"><p data-i18n="faq.a2">Not at all. You need to understand your own business processes. We handle everything technical. We'll explain what we're building in plain terms and make sure your team can manage it going forward, whether or not they have a technical background.</p></div>
+        <div class="faq-answer"><p data-i18n="faq.a2">All you need is an understanding of your own business processes — we handle everything technical. We'll explain what we're building in plain terms and make sure your team can manage it going forward, whether or not they have a technical background.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
@@ -708,8 +703,8 @@ footer{background:var(--dark);color:var(--cream)}
 <section class="contact" id="contact">
   <div class="section-inner reveal">
     <div class="section-tag" data-i18n="contact.tag">Let's Talk</div>
-    <h2 data-i18n-html="contact.h2">Tell us what's slowing<br>your team <em>down.</em></h2>
-    <p class="section-desc" data-i18n="contact.desc">No sales pitch. Just a direct conversation about what you're dealing with and whether we can help.</p>
+    <h2 data-i18n-html="contact.h2">Tell us where you'd like<br>your team to <em>move faster.</em></h2>
+    <p class="section-desc" data-i18n="contact.desc">Just a direct, low-pressure conversation about what you're dealing with and how we can help.</p>
     <div class="contact-info-row">
       <div class="contact-info-item">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -869,13 +864,13 @@ footer{background:var(--dark);color:var(--cream)}
       "nav.contact": "Contact",
       "nav.cta": "Get in Touch",
       "hero.eyebrow": "IT Consulting & Automation  ·  Philadelphia, PA",
-      "hero.title": "Stop doing manually<br>what systems can do<br><em>automatically.</em>",
-      "hero.desc": "We build the automated infrastructure that lets small and mid-size businesses stop trading time for output and start scaling what actually works.",
+      "hero.title": "Turn manual work<br>into systems that<br><em>run themselves.</em>",
+      "hero.desc": "We build the automated infrastructure that lets small and mid-size businesses move from trading time for output to scaling what actually works.",
       "hero.btn1": "Start a Conversation",
       "hero.btn2": "See Our Work",
       "triggers.tag": "Sound Familiar?",
       "triggers.h2": "If any of this is your<br><em>day-to-day</em>, we should talk.",
-      "triggers.desc": "The patterns we see most often inside small and mid-size operations. None of them require an enterprise budget to fix.",
+      "triggers.desc": "The patterns we see most often inside small and mid-size operations, and every one is fixable without an enterprise budget.",
       "triggers.1": "Your team re-enters the same data into multiple systems every week.",
       "triggers.2": "Leads sit in inboxes for hours or days before anyone follows up.",
       "triggers.3": "Reports take half a day because the data lives in disconnected tools.",
@@ -891,20 +886,18 @@ footer{background:var(--dark);color:var(--cream)}
       "marquee.5": "Technical Advisory",
       "marquee.6": "Managed Automation",
       "stats.founded": "Founded",
-      "stats.focus": "Focus",
-      "stats.focusNum": "SMB",
-      "stats.based": "Based In",
-      "stats.reach": "Reach",
-      "stats.reachNum": "Global",
+      "stats.focus": "Industries Served",
+      "stats.based": "Weeks to Delivery",
+      "stats.reach": "Client Code Ownership",
       "services.tag": "What We Do",
       "services.h2": "Six ways we make your<br>business <em>run itself</em>",
       "services.desc": "Every engagement starts with your real workflows, not a template. We build what your operation actually needs.",
       "services.1.title": "Technical Advisory & Contract Consulting",
       "services.1.desc": "Senior consultants placed directly inside your team for strategic direction, architecture, technology selection, and roadmapping. Engagements range from fractional CTO work to embedded delivery on critical projects.",
       "services.2.title": "Process Consulting",
-      "services.2.desc": "Before building anything, we map what you have, find where time and money are being lost, and build a prioritized plan that pays back fast. No busywork. No fluff.",
+      "services.2.desc": "Before building anything, we map what you have, find where time and money are being lost, and build a prioritized plan that pays back fast — practical steps only, prioritized by payback.",
       "services.3.title": "Systems Integration",
-      "services.3.desc": "Your CRM, ERP, accounting platform, and every other tool in your stack, connected and talking to each other. No more manual exports or copy-paste handoffs between systems.",
+      "services.3.desc": "Your CRM, ERP, accounting platform, and every other tool in your stack, connected and talking to each other, so data moves on its own and manual exports and copy-paste handoffs are behind you.",
       "services.4.title": "AI-Powered Workflows",
       "services.4.desc": "Put language models to work inside your operations: document processing, email triage, content drafts, predictive maintenance, and smart routing based on meaning, not just rules.",
       "services.5.title": "Managed Automation",
@@ -913,7 +906,7 @@ footer{background:var(--dark);color:var(--cream)}
       "services.6.desc": "Custom n8n workflows that connect your apps, route data, and trigger actions without anyone lifting a finger. From lead routing to invoice generation. If it's repetitive, we automate it.",
       "process.tag": "How We Work",
       "process.h2": "Four steps from<br><em>problem to production</em>",
-      "process.desc": "A clean process with no surprises. You'll know what's happening and why at every stage.",
+      "process.desc": "A clear, transparent process. You'll know what's happening and why at every stage.",
       "process.1.title": "Discovery",
       "process.1.desc": "We map your current workflows, find the bottlenecks, and agree on the outcomes that matter most before anything else happens.",
       "process.2.title": "Solution Design",
@@ -924,7 +917,7 @@ footer{background:var(--dark);color:var(--cream)}
       "process.4.desc": "Your team is trained, documentation is delivered, and we stay available for questions, changes, and whatever comes next.",
       "projects.tag": "Select Work",
       "projects.h2": "Engagements that<br><em>moved the needle</em>",
-      "projects.desc": "Three recent consulting projects across very different industries. Same outcome: technology that works.",
+      "projects.desc": "Four recent consulting projects across very different industries. Same outcome: technology that works.",
       "projects.1.industry": "Smart City & Transportation Technology",
       "projects.1.title": "Enterprise IT Consulting for a Global Smart City & Transit Platform",
       "projects.1.desc": "Strategic technology consulting for an international company operating at the intersection of smart city infrastructure, connected transportation, IoT systems, and large-scale integration across multiple continents.",
@@ -946,15 +939,22 @@ footer{background:var(--dark);color:var(--cream)}
       "projects.3.tag2": "AI Maintenance",
       "projects.3.tag3": "Service Operations",
       "projects.3.tag4": "Renewable Energy",
+      "projects.4.industry": "AI Readiness & Workforce Enablement",
+      "projects.4.title": "Custom Operations Platform for an AI Readiness & Adoption Consulting Firm",
+      "projects.4.desc": "A multi-tenant admin platform built to run an entire AI readiness and 30-day adoption practice from a single tool. Replaces manual scoring, ad-hoc training plans, and stitched-together deliverables with one end-to-end workflow: 50-question assessments scored across 7 readiness dimensions, automated training path recommendations, 30-day adoption plans, and branded PDF reports at every milestone. A row-level-secured client portal lets each company manager self-serve. The outcome: shorter engagement cycles, consistent deliverables, and the ability to scale without growing headcount.",
+      "projects.4.tag1": "AI Readiness",
+      "projects.4.tag2": "Workforce Enablement",
+      "projects.4.tag3": "Multi-Tenant SaaS",
+      "projects.4.tag4": "Reporting Automation",
       "about.tag": "Who We Are",
       "about.h2": "We build systems,<br>not <em>slide decks.</em>",
       "about.p1": "<strong>EIT</strong> is a Philadelphia, PA-based IT consulting firm founded in 2022. We work with small and mid-size businesses that are tired of doing things the hard way and want systems that actually run.",
-      "about.p2": "We don't do generic recommendations or vendor-neutral advice that goes nowhere. We get into your operations, find what's broken or slow, and build the automation that fixes it.",
+      "about.p2": "We get into your operations, find what's slowing you down, and build the automation that fixes it — practical work, not shelfware.",
       "about.p3": "Our specialty is <strong>n8n</strong>, modern integration platforms, and connecting practical tools to real business processes, not as a novelty but as working infrastructure.",
       "about.c1.title": "You Own What We Build",
-      "about.c1.desc": "No proprietary platforms, no lock-in. Every workflow and integration is fully yours to modify, maintain, or hand to anyone else.",
+      "about.c1.desc": "Every workflow and integration is fully yours to modify, maintain, or hand to anyone else — built on open tools, with no lock-in.",
       "about.c2.title": "Built for Your Stage of Growth",
-      "about.c2.desc": "Enterprise-grade automation doesn't require an enterprise budget. We start small, prove value fast, and build from there.",
+      "about.c2.desc": "Enterprise-grade automation fits a growing company's budget. We start small, prove value fast, and build from there.",
       "about.c3.title": "Practitioners, Not Consultants",
       "about.c3.desc": "We live inside these tools every day. You get someone who's already solved the problem you're describing, not someone researching it on your dime.",
       "about.c4.title": "Outcomes Over Hours",
@@ -964,7 +964,7 @@ footer{background:var(--dark);color:var(--cream)}
       "faq.q1": "What size businesses do you work with?",
       "faq.a1": "We focus exclusively on small and mid-size businesses, typically 5 to 200 employees. This is where targeted automation creates the most leverage. We don't work with large enterprises. Our approach is built around the speed and pragmatism that growing businesses need.",
       "faq.q2": "Do I need to know anything about n8n or automation tools?",
-      "faq.a2": "Not at all. You need to understand your own business processes. We handle everything technical. We'll explain what we're building in plain terms and make sure your team can manage it going forward, whether or not they have a technical background.",
+      "faq.a2": "All you need is an understanding of your own business processes — we handle everything technical. We'll explain what we're building in plain terms and make sure your team can manage it going forward, whether or not they have a technical background.",
       "faq.q3": "How long does a typical project take?",
       "faq.a3": "A focused automation project typically takes 2 to 6 weeks from discovery to handoff. Larger integration projects may take longer. We prioritize fast delivery of working systems over long planning cycles, so you see results quickly.",
       "faq.q4": "What happens after the project is delivered?",
@@ -972,8 +972,8 @@ footer{background:var(--dark);color:var(--cream)}
       "faq.q5": "Do you work with clients outside Pennsylvania?",
       "faq.a5": "Yes. We're based in Philadelphia, PA but work with clients across the US and internationally. Most of our work is done remotely. When an on-site visit adds value, we make it happen.",
       "contact.tag": "Let's Talk",
-      "contact.h2": "Tell us what's slowing<br>your team <em>down.</em>",
-      "contact.desc": "No sales pitch. Just a direct conversation about what you're dealing with and whether we can help.",
+      "contact.h2": "Tell us where you'd like<br>your team to <em>move faster.</em>",
+      "contact.desc": "Just a direct, low-pressure conversation about what you're dealing with and how we can help.",
       "contact.location": "Philadelphia, Pennsylvania, United States",
       "form.firstName": "First Name",
       "form.firstName.placeholder": "Jane",
@@ -1041,13 +1041,13 @@ footer{background:var(--dark);color:var(--cream)}
       "nav.contact": "Contacto",
       "nav.cta": "Contáctanos",
       "hero.eyebrow": "Consultoría TI y Automatización  ·  Filadelfia, PA",
-      "hero.title": "Deja de hacer manualmente<br>lo que los sistemas pueden hacer<br><em>automáticamente.</em>",
-      "hero.desc": "Construimos la infraestructura automatizada que permite a las pequeñas y medianas empresas dejar de cambiar tiempo por resultados y empezar a escalar lo que realmente funciona.",
+      "hero.title": "Convierte el trabajo manual<br>en sistemas que<br><em>se gestionan solos.</em>",
+      "hero.desc": "Construimos la infraestructura automatizada que permite a las pequeñas y medianas empresas pasar de cambiar tiempo por resultados a escalar lo que realmente funciona.",
       "hero.btn1": "Iniciar una Conversación",
       "hero.btn2": "Ver Nuestro Trabajo",
       "triggers.tag": "¿Te Suena?",
       "triggers.h2": "Si algo de esto es tu<br><em>día a día</em>, deberíamos hablar.",
-      "triggers.desc": "Los patrones que vemos con más frecuencia en operaciones de pequeñas y medianas empresas. Ninguno requiere un presupuesto de gran corporación para resolverse.",
+      "triggers.desc": "Los patrones que vemos con más frecuencia en operaciones de pequeñas y medianas empresas, y cada uno se puede resolver sin un presupuesto de gran corporación.",
       "triggers.1": "Tu equipo vuelve a ingresar los mismos datos en varios sistemas cada semana.",
       "triggers.2": "Los leads quedan en correos durante horas o días antes de que alguien dé seguimiento.",
       "triggers.3": "Los reportes toman medio día porque los datos viven en herramientas desconectadas.",
@@ -1063,20 +1063,18 @@ footer{background:var(--dark);color:var(--cream)}
       "marquee.5": "Asesoría Técnica",
       "marquee.6": "Automatización Gestionada",
       "stats.founded": "Fundada",
-      "stats.focus": "Enfoque",
-      "stats.focusNum": "PYMES",
-      "stats.based": "Sede",
-      "stats.reach": "Alcance",
-      "stats.reachNum": "Global",
+      "stats.focus": "Industrias Atendidas",
+      "stats.based": "Semanas de Entrega",
+      "stats.reach": "Propiedad del Código",
       "services.tag": "Qué Hacemos",
       "services.h2": "Seis formas de hacer que<br>tu empresa <em>se gestione sola</em>",
       "services.desc": "Cada proyecto comienza con tus flujos reales, no con una plantilla. Construimos lo que tu operación realmente necesita.",
       "services.1.title": "Asesoría Técnica y Consultoría por Contrato",
       "services.1.desc": "Consultores senior asignados directamente dentro de tu equipo para dirección estratégica, arquitectura, selección de tecnología y planificación. Los proyectos van desde CTO fraccional hasta entrega integrada en proyectos críticos.",
       "services.2.title": "Consultoría de Procesos",
-      "services.2.desc": "Antes de construir nada, mapeamos lo que tienes, encontramos dónde se pierde tiempo y dinero, y diseñamos un plan priorizado que se paga rápido. Sin trabajo innecesario. Sin relleno.",
+      "services.2.desc": "Antes de construir nada, mapeamos lo que tienes, encontramos dónde se pierde tiempo y dinero, y diseñamos un plan priorizado que se paga rápido: solo pasos prácticos, priorizados por retorno.",
       "services.3.title": "Integración de Sistemas",
-      "services.3.desc": "Tu CRM, ERP, plataforma contable y todas las demás herramientas de tu stack, conectadas y comunicándose entre sí. Sin más exportaciones manuales ni transferencias de copiar y pegar.",
+      "services.3.desc": "Tu CRM, ERP, plataforma contable y todas las demás herramientas de tu stack, conectadas y comunicándose entre sí, para que los datos fluyan solos y las exportaciones manuales y las transferencias de copiar y pegar queden atrás.",
       "services.4.title": "Flujos Impulsados por IA",
       "services.4.desc": "Pon a trabajar los modelos de lenguaje dentro de tus operaciones: procesamiento de documentos, clasificación de correos, redacción de contenido, mantenimiento predictivo y enrutamiento inteligente basado en significado, no solo en reglas.",
       "services.5.title": "Automatización Gestionada",
@@ -1085,7 +1083,7 @@ footer{background:var(--dark);color:var(--cream)}
       "services.6.desc": "Flujos n8n personalizados que conectan tus aplicaciones, enrutan datos y activan acciones sin que nadie levante un dedo. Desde el enrutamiento de leads hasta la generación de facturas. Si es repetitivo, lo automatizamos.",
       "process.tag": "Cómo Trabajamos",
       "process.h2": "Cuatro pasos del<br><em>problema a la producción</em>",
-      "process.desc": "Un proceso claro y sin sorpresas. Sabrás qué pasa y por qué en cada etapa.",
+      "process.desc": "Un proceso claro y transparente. Sabrás qué pasa y por qué en cada etapa.",
       "process.1.title": "Descubrimiento",
       "process.1.desc": "Mapeamos tus flujos actuales, encontramos los cuellos de botella y acordamos los resultados más importantes antes de cualquier otra cosa.",
       "process.2.title": "Diseño de la Solución",
@@ -1096,7 +1094,7 @@ footer{background:var(--dark);color:var(--cream)}
       "process.4.desc": "Tu equipo recibe capacitación, se entrega la documentación y permanecemos disponibles para preguntas, cambios y lo que venga después.",
       "projects.tag": "Trabajo Seleccionado",
       "projects.h2": "Proyectos que<br><em>marcaron la diferencia</em>",
-      "projects.desc": "Tres proyectos de consultoría recientes en industrias muy distintas. Mismo resultado: tecnología que funciona.",
+      "projects.desc": "Cuatro proyectos de consultoría recientes en industrias muy distintas. Mismo resultado: tecnología que funciona.",
       "projects.1.industry": "Ciudad Inteligente y Tecnología de Transporte",
       "projects.1.title": "Consultoría TI Empresarial para una Plataforma Global de Ciudad Inteligente y Transporte",
       "projects.1.desc": "Consultoría tecnológica estratégica para una empresa internacional que opera en la intersección de infraestructura de ciudad inteligente, transporte conectado, sistemas IoT e integración a gran escala en múltiples continentes.",
@@ -1118,15 +1116,22 @@ footer{background:var(--dark);color:var(--cream)}
       "projects.3.tag2": "Mantenimiento con IA",
       "projects.3.tag3": "Operaciones de Servicio",
       "projects.3.tag4": "Energía Renovable",
+      "projects.4.industry": "Preparación en IA y Habilitación del Personal",
+      "projects.4.title": "Plataforma Operativa a Medida para una Firma de Consultoría en Preparación y Adopción de IA",
+      "projects.4.desc": "Una plataforma administrativa multi-tenant construida para gestionar toda una práctica de evaluación de preparación en IA y adopción de 30 días desde una sola herramienta. Reemplaza la puntuación manual, los planes de capacitación improvisados y los entregables armados a mano con un flujo de trabajo de extremo a extremo: evaluaciones de 50 preguntas puntuadas en 7 dimensiones de preparación, recomendaciones automáticas de itinerarios de capacitación, planes de adopción de 30 días e informes PDF con marca propia en cada hito. Un portal de cliente con seguridad a nivel de fila permite que cada gerente se autogestione. El resultado: ciclos de proyecto más cortos, entregables consistentes y la capacidad de escalar sin aumentar el equipo.",
+      "projects.4.tag1": "Preparación en IA",
+      "projects.4.tag2": "Habilitación del Personal",
+      "projects.4.tag3": "SaaS Multi-Tenant",
+      "projects.4.tag4": "Automatización de Informes",
       "about.tag": "Quiénes Somos",
       "about.h2": "Construimos sistemas,<br>no <em>presentaciones.</em>",
       "about.p1": "<strong>EIT</strong> es una firma de consultoría TI con sede en Filadelfia, Pensilvania, fundada en 2022. Trabajamos con pequeñas y medianas empresas cansadas de hacer las cosas a la antigua y que quieren sistemas que realmente funcionen.",
-      "about.p2": "No damos recomendaciones genéricas ni consejos neutrales que no llevan a ningún lado. Nos sumergimos en tus operaciones, encontramos lo que está roto o lento y construimos la automatización que lo soluciona.",
+      "about.p2": "Nos sumergimos en tus operaciones, encontramos lo que te está frenando y construimos la automatización que lo soluciona: trabajo práctico, no recomendaciones que quedan en el cajón.",
       "about.p3": "Nuestra especialidad es <strong>n8n</strong>, las plataformas modernas de integración y la conexión de herramientas prácticas con procesos reales del negocio: no como una novedad, sino como infraestructura funcional.",
       "about.c1.title": "Tú Eres Dueño de lo Que Construimos",
-      "about.c1.desc": "Sin plataformas propietarias, sin bloqueo. Cada flujo e integración es completamente tuyo para modificar, mantener o entregar a quien quieras.",
+      "about.c1.desc": "Cada flujo e integración es completamente tuyo para modificar, mantener o entregar a quien quieras: construido con herramientas abiertas y sin bloqueo.",
       "about.c2.title": "Hecho para Tu Etapa de Crecimiento",
-      "about.c2.desc": "La automatización de nivel empresarial no requiere un presupuesto empresarial. Empezamos pequeño, demostramos valor rápido y construimos desde ahí.",
+      "about.c2.desc": "La automatización de nivel empresarial cabe en el presupuesto de una empresa en crecimiento. Empezamos pequeño, demostramos valor rápido y construimos desde ahí.",
       "about.c3.title": "Profesionales, No Consultores",
       "about.c3.desc": "Vivimos dentro de estas herramientas todos los días. Obtienes a alguien que ya resolvió el problema que estás describiendo, no a alguien investigándolo a tu costa.",
       "about.c4.title": "Resultados Sobre Horas",
@@ -1136,7 +1141,7 @@ footer{background:var(--dark);color:var(--cream)}
       "faq.q1": "¿Con qué tamaño de empresas trabajan?",
       "faq.a1": "Nos enfocamos exclusivamente en pequeñas y medianas empresas, normalmente de 5 a 200 empleados. Es donde la automatización dirigida genera más palanca. No trabajamos con grandes corporaciones; nuestro enfoque está construido alrededor de la velocidad y el pragmatismo que las empresas en crecimiento necesitan.",
       "faq.q2": "¿Necesito saber algo sobre n8n o herramientas de automatización?",
-      "faq.a2": "Para nada. Necesitas entender tus propios procesos de negocio: nosotros nos encargamos de todo lo técnico. Te explicaremos lo que estamos construyendo en términos sencillos y nos aseguraremos de que tu equipo pueda gestionarlo en el futuro, tenga o no formación técnica.",
+      "faq.a2": "Todo lo que necesitas es entender tus propios procesos de negocio: nosotros nos encargamos de todo lo técnico. Te explicaremos lo que estamos construyendo en términos sencillos y nos aseguraremos de que tu equipo pueda gestionarlo en el futuro, tenga o no formación técnica.",
       "faq.q3": "¿Cuánto tarda un proyecto típico?",
       "faq.a3": "Un proyecto de automatización enfocado normalmente toma de 2 a 6 semanas, desde el descubrimiento hasta la entrega. Los proyectos de integración más grandes pueden tardar más. Priorizamos la entrega rápida de sistemas funcionales sobre los ciclos largos de planificación, para que veas resultados rápido.",
       "faq.q4": "¿Qué pasa después de entregar el proyecto?",
@@ -1144,8 +1149,8 @@ footer{background:var(--dark);color:var(--cream)}
       "faq.q5": "¿Trabajan con clientes fuera de Pensilvania?",
       "faq.a5": "Sí. Tenemos sede en Filadelfia, Pensilvania, pero trabajamos con clientes en todo EE.UU. e internacionalmente. La mayor parte de nuestro trabajo es remoto. Cuando una visita en sitio aporta valor, la coordinamos.",
       "contact.tag": "Hablemos",
-      "contact.h2": "Dinos qué está frenando<br>a tu equipo<em>.</em>",
-      "contact.desc": "Sin discurso de ventas. Solo una conversación directa sobre lo que estás enfrentando y si podemos ayudar.",
+      "contact.h2": "Dinos dónde quieres que<br>tu equipo <em>avance más rápido.</em>",
+      "contact.desc": "Solo una conversación directa y sin presión sobre lo que estás enfrentando y cómo podemos ayudar.",
       "contact.location": "Filadelfia, Pensilvania, Estados Unidos",
       "form.firstName": "Nombre",
       "form.firstName.placeholder": "Juana",
